@@ -1,0 +1,6 @@
+test-images
+spike-results
+spike
+.env*
+node_modules
+.next

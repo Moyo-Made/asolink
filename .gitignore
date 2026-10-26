@@ -1,0 +1,19 @@
+node_modules
+.env*.local
+.env
+test-images/
+spike-results/
+.DS_Store
+.next
+.vercel
+.env*
+next-env.d.ts
+*.tsbuildinfo
+/out/
+/build
+
+# agent tooling
+.agents/
+.claude/
+skills-lock.json
+!.env.local.example

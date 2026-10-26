@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #1b2559;
+  --color-ink-soft: #4a5384;
+  --color-wash: #e9ecf7;
+  --color-line: #d5d9ec;
+  --color-paper: #fcfcfd;
+  --color-marigold: #f2b33d;
+  --color-marigold-soft: #fdf0d3;
+  --color-coral: #d23f2f;
+  --color-coral-soft: #fbe6e3;
+  --color-wa: #1fa855;
+  --font-display: var(--font-gloock), Georgia, serif;
+  --font-sans: var(--font-hanken), system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-marigold);
+  outline-offset: 2px;
+}
+
+.label-card {
+  border: 1.5px solid var(--color-ink);
+  box-shadow:
+    inset 0 0 0 4px var(--color-paper),
+    inset 0 0 0 5.5px var(--color-ink);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .stitch {
+    background-image: linear-gradient(90deg, var(--color-marigold) 50%, transparent 50%);
+    background-size: 16px 3px;
+    animation: stitch 0.9s linear infinite;
+  }
+  @keyframes stitch {
+    to {
+      background-position: 16px 0;
+    }
+  }
+}
