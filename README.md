@@ -50,10 +50,12 @@ Before building, a spike (`spike/`) ran 57 real calls across Clothes VTO and Fab
 Results:
 - 57/57 succeeded.
 - Median task time was about 18s.
-- Each call cost exactly 2 units, and failed calls weren't charged.
+- Each call cost exactly 2 units.
 - Faces, skin tone, gele and coral beads were preserved.
 
-`npm run smoke` drives the whole product end to end in 15 checks, against local or production: upload, synthesis, event, try-on, cache, WhatsApp order, tracker, CSV and access control.
+Full numbers: [`spike/RESULTS.md`](spike/RESULTS.md). The spike's input photos aren't committed (sources are listed in the credits); the spike code is in `spike/`.
+
+`npm run smoke [baseUrl]` drives the whole product end to end in 15 checks, against local or production: upload, synthesis, event, try-on, cache, WhatsApp order, tracker, CSV and access control. It uses the photos in `scripts/fixtures/`, needs `BLOB_READ_WRITE_TOKEN` in `.env.local`, and runs one real try-on (2 units).
 
 ## Architecture
 
@@ -107,6 +109,8 @@ Scripts:
 ## Credits
 
 - Style photos, demo photos and test photos: [Unsplash](https://unsplash.com/license). The demo results were generated from them with YouCam.
+  - `scripts/fixtures/guest.jpg`: https://images.unsplash.com/photo-1602058746258-e012b1c1197c
+  - `scripts/fixtures/fabric-lace.jpg`: cropped and recoloured from https://images.unsplash.com/photo-1558568368-dc03d41f78df
 - Virtual try-on: [YouCam API](https://yce.perfectcorp.com/ai-api) by Perfect Corp.
 
 Every preview is labelled as a visual preview, not a fit guarantee.

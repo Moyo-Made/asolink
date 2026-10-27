@@ -2,8 +2,8 @@ import { readFile } from "node:fs/promises";
 import { put } from "@vercel/blob";
 
 const BASE = process.argv[2] ?? "http://localhost:3000";
-const PERSON = process.argv[3] ?? "spike-results/inputs/people/full-woman-pink-lace.jpg";
-const FABRIC = process.argv[4] ?? "test-images/fabrics/c-lace-wine.jpg";
+const PERSON = process.argv[3] ?? "scripts/fixtures/guest.jpg";
+const FABRIC = process.argv[4] ?? "scripts/fixtures/fabric-lace.jpg";
 let cookie = "";
 
 async function api<T>(path: string, init: RequestInit = {}): Promise<{ status: number; body: T }> {
