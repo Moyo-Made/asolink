@@ -11,6 +11,7 @@ const MESSAGES: Record<string, string> = {
   timeout: "This is taking longer than usual. Check your connection and try again.",
   limit_device: "You've used all your previews for this event. Pick a size and confirm when you're ready.",
   limit_event: "Previews for this event are used up. You can still pick a size and confirm.",
+  closed: "Orders for this event have closed.",
 };
 
 export function tryonErrorMessage(code: string | null | undefined) {

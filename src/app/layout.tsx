@@ -6,7 +6,7 @@ const display = Gloock({ variable: "--font-gloock", subsets: ["latin"], weight: 
 const sans = Hanken_Grotesk({ variable: "--font-hanken", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://asolink.vercel.app"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://aso-link.vercel.app"),
   title: { default: "AsoLink: aso ebi, sorted", template: "%s · AsoLink" },
   description:
     "One link for your aso ebi. Guests see the fabric on themselves, pick a size, and order from you on WhatsApp.",

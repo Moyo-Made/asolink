@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { getEventBySlug, sql } from "@/lib/db";
 import { getDevice } from "@/lib/device";
+import { daysUntil } from "@/lib/format";
 import { orderMessage, waLink } from "@/lib/whatsapp";
 
 const Body = z.object({
@@ -19,6 +20,8 @@ export async function POST(request: Request) {
 
   const event = await getEventBySlug(b.slug);
   if (!event) return Response.json({ error: "This event link doesn't exist." }, { status: 404 });
+  if ((daysUntil(event.deadline) ?? 0) < 0)
+    return Response.json({ error: "Orders for this event have closed." }, { status: 403 });
   if (!event.sizes.includes(b.size)) return Response.json({ error: "Pick one of the listed sizes." }, { status: 400 });
 
   const db = sql();

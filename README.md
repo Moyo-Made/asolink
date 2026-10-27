@@ -2,7 +2,7 @@
 
 **One link for your aso ebi.** A coordinator uploads the fabric for a Nigerian wedding or party. Guests open one link from the family WhatsApp group, see that fabric sewn into an outfit on their own photo, pick a size, and send a ready-written order on WhatsApp. The coordinator gets a live tracker of who ordered and which sizes to sew.
 
-Live: **https://asolink-eight.vercel.app**
+Live: **https://aso-link.vercel.app**
 
 Built for the YouCam API Skin AI & eCommerce VTO Hackathon (Perfect Corp).
 

@@ -2,6 +2,7 @@ import { z } from "zod";
 import { isOurBlobUrl } from "@/lib/blob";
 import { getEventBySlug, sql, type TryonRow } from "@/lib/db";
 import { getDevice } from "@/lib/device";
+import { daysUntil } from "@/lib/format";
 import { publicTryon } from "@/lib/tryons";
 import { tryonErrorMessage } from "@/lib/tryon-errors";
 import { createClothesTask, YouCamError } from "@/lib/youcam";
@@ -25,6 +26,8 @@ export async function POST(request: Request) {
 
   const event = await getEventBySlug(slug);
   if (!event) return Response.json({ error: "not_found", message: "This event link doesn't exist." }, { status: 404 });
+  if ((daysUntil(event.deadline) ?? 0) < 0)
+    return Response.json({ error: "closed", message: tryonErrorMessage("closed") }, { status: 403 });
   const db = sql();
   const [look] = (await db`select id, ref_url from looks where id = ${lookId} and event_id = ${event.id}`) as {
     id: string;
